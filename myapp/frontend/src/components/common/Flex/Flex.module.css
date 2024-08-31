@@ -1,0 +1,43 @@
+.root {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.grow-1 {
+  flex-grow: 1;
+}
+
+.grow-0 {
+  flex-grow: 0;
+}
+
+.shrink-1 {
+  flex-shrink: 1;
+}
+
+.shrink-0 {
+  flex-shrink: 0;
+}
+
+.height-fill {
+  height: 100%;
+}
+
+.height-fit {
+  height: fit-content;
+}
+
+.width-fill {
+  width: 100%;
+}
+
+.width-fit {
+  width: fit-content;
+}

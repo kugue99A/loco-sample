@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #ab8fe0;
+  --secondary: #4a6bae;
+  --error: #ae4a4a;
+  --surface: #262626;
+  --on-surface: #f4dbff;
+  --background: #6f6f6f;
+  --on-background: #fdf8ff;
+}
+
+.body {
+  width: 100vw;
+  height: 100vh;
+}

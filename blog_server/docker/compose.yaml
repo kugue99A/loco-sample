@@ -1,0 +1,53 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sleep infinity
+    networks:
+      - db
+      - redis
+      - mailer
+    volumes:
+      - ../..:/workspaces:cached
+    env_file:
+      - .env
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    networks:
+      - db
+    volumes:
+      - mysql-data:/var/lib/mysql
+    env_file:
+      - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+  redis:
+    image: redis:latest
+    restart: unless-stopped
+    ports:
+      - 6379:6379
+    networks:
+      - redis
+  mailer:
+    image: mailtutan/mailtutan:latest
+    restart: unless-stopped
+    ports:
+      - 1080:1080
+      - 1025:1025
+    networks:
+      - mailer
+
+volumes:
+  mysql-data:
+
+networks:
+  db:
+  redis:
+  mailer:
